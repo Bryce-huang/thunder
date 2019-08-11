@@ -19,7 +19,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://bryce:bryce@localhost:8761/eureka/
+      defaultZone: http://bryce:bryce@gitlab.bryce.com:8761/eureka/
 
 # 暴露监控端点
 management:
@@ -27,5 +27,11 @@ management:
     web:
       exposure:
         include: '*'
+swagger:
+  enabled: true
+  title: config
+  base-package: fun.bryce
+  exclude-path: /error
+  version: @project.version@
 
 

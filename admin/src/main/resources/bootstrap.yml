@@ -23,4 +23,4 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://bryce:bryce@localhost:8761/eureka/
+      defaultZone: http://bryce:bryce@gitlab.bryce.com:8761/eureka/

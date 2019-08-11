@@ -4,7 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
 
     <springProperty scope="context" name="APPLICATION_NAME" source="spring.application.name" defaultValue="app"/>
-    <springProperty scope="context" name="LOGSTASH_HOST" source="LOGSTASH_HOST" defaultValue="localhost"/>
+    <springProperty scope="context" name="LOGSTASH_HOST" source="LOGSTASH_HOST" defaultValue="gitlab.bryce.com"/>
     <springProperty scope="context" name="LOGSTASH_PORT" source="LOGSTASH_PORT" defaultValue="9000"/>
 
     <springProfile name="dev">

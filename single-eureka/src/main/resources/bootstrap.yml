@@ -14,8 +14,12 @@ spring:
 server:
   port: 8761
 eureka:
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    eviction-interval-timer-in-ms: 5000
+    enable-self-preservation: false
   instance:
-    hostname: localhost
+    hostname: gitlab.bryce.com
     appname: ${spring.application.name}
     statusPageUrlPath: http://${eureka.instance.hostname}:${server.port}/swagger-ui.html
     preferIpAddress: true
@@ -25,4 +29,4 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://bryce${eureka.instance.hostname}:${server.port}/eureka/

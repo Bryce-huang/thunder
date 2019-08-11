@@ -1,13 +1,8 @@
 FROM  kdvolder/jdk8
 
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+ADD target/config-1.0-SNAPSHOT.jar /opt/app.jar
+ENTRYPOINT java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom \
+ -Duser.timezone=Asia/Shanghai \
+ -Dfile.encoding=UTF-8  \
+ -jar /opt/app.jar \
 
-RUN mkdir -p /auth
-
-WORKDIR /auth
-
-EXPOSE 3000
-
-ADD ./auth/target/auth.jar ./
-
-CMD java -Djava.security.egd=file:/dev/./urandom -jar auth.jar

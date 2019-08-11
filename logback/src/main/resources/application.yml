@@ -2,5 +2,5 @@ spring:
   application:
     name: logback
 
-LOGSTASH_HOST: localhost
+LOGSTASH_HOST: gitlab.bryce.com
 LOGSTASH_PORT: 9000

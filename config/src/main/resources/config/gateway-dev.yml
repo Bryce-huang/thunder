@@ -31,11 +31,7 @@ spring:
               args:
                 name: default
                 fallbackUri: 'forward:/fallback'
-        # 代码生成模块
-        - id: codegen
-          uri: lb://codegen
-          predicates:
-            - Path=/gen/**
+
 
 
 security:
