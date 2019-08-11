@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: logback
+
+LOGSTASH_HOST: localhost
+LOGSTASH_PORT: 9000

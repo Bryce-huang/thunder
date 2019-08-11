@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  fun.bryce.security.service.SecurityUserDetailsServiceImpl

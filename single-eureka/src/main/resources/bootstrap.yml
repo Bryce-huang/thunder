@@ -1,0 +1,28 @@
+swagger:
+  enabled: true
+  title: EurekaServer
+  base-package: fun.bryce.singleeureka
+  exclude-path: /error
+  version: @project.version@
+spring:
+  security:
+    user:
+      name: bryce
+      password: bryce
+  application:
+    name: eureka-server
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+    statusPageUrlPath: http://${eureka.instance.hostname}:${server.port}/swagger-ui.html
+    preferIpAddress: true
+    homePageUrl: https://${eureka.instance.hostname}/
+    healthCheckUrl: https://${eureka.instance.hostname}/health
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  fun.bryce.core.config.JacksonConfig,\
+  fun.bryce.core.config.RedisTemplateConfig,\
+  fun.bryce.core.config.RestTemplateConfig,\
+  fun.bryce.core.config.FilterIgnorePropertiesConfig,\
+  fun.bryce.core.exception.GlobalExceptionHandler,\
+  fun.bryce.core.util.SpringContextHolder

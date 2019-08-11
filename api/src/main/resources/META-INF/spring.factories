@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  fun.bryce.api.feign.fallback.RemoteUserServiceFallbackImpl,\
+  fun.bryce.api.feign.fallback.RemoteLogServiceFallbackImpl,\
+  fun.bryce.api.feign.fallback.RemoteTokenServiceFallbackImpl,\
+  fun.bryce.api.feign.factory.RemoteUserServiceFallbackFactory,\
+  fun.bryce.api.feign.factory.RemoteLogServiceFallbackFactory,\
+  fun.bryce.api.feign.factory.RemoteTokenServiceFallbackFactory
