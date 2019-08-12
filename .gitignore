@@ -1,6 +1,7 @@
 ######################
 # Project Specific
 ######################
+**/target
 /target/classes/static/**
 /src/test/javascript/coverage/
 

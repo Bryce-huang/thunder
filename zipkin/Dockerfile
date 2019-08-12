@@ -1,15 +1,8 @@
 FROM  kdvolder/jdk8
+ARG JAR_FILE
+ADD target/${JAR_FILE} /opt/app.jar
+ENTRYPOINT java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom \
+ -Duser.timezone=Asia/Shanghai \
+ -Dfile.encoding=UTF-8  \
+ -jar /opt/app.jar \
 
-MAINTAINER cherbini@qq.com
-
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-RUN mkdir -p /zipkin
-
-WORKDIR /zipkin
-
-EXPOSE 5002
-
-ADD ./visual/zipkin/target/zipkin.jar ./
-
-CMD java -Djava.security.egd=file:/dev/./urandom -jar zipkin.jar

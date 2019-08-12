@@ -12,6 +12,7 @@ docker run -p 8761:8761 \
 --env PROFILE='dev' \
 --env EUREKA_PORT='8761' \
 --name single-eureka -d \
+--add-host gitlab.bryce.com:192.168.0.103 \
 --restart always brycehuang/single-eureka:0.0.1-SNAPSHOT \
 --network=host
 
@@ -19,6 +20,52 @@ docker run -p 8761:8761 \
 # 运行config
 docker run -p 8888:8888 \
 --env JAVA_OPTS='-server -Xmx512m' \
---name single-config -d \
+--name config -d \
+--add-host gitlab.bryce.com:192.168.0.103 \
 --restart always brycehuang/config:1.0-SNAPSHOT \
+$(cat /etc/hosts|awk -F ' ' '{if(NR>2){print "--add-host " $2 ":" $1}}') \
 --network=host
+
+
+# 运行admin
+docker run -p 4000:4000 \
+--add-host gitlab.bryce.com:192.168.0.103 \
+--env JAVA_OPTS='-server -Xmx512m' \
+--name admin -d \
+ brycehuang/admin:1.0-SNAPSHOT \
+--network=host
+
+
+# 运行auth
+docker run -p 3000:3000 \
+--add-host gitlab.bryce.com:192.168.0.103 \
+--env JAVA_OPTS='-server -Xmx512m' \
+--name auth -d \
+ brycehuang/auth:1.0-SNAPSHOT \
+--network=host
+
+# 运行gateway
+docker run -p 9999:9999 \
+--add-host gitlab.bryce.com:192.168.0.103 \
+--env JAVA_OPTS='-server -Xmx512m' \
+--name gateway -d \
+ brycehuang/gateway:1.0-SNAPSHOT \
+--network=host
+
+
+# 运行monitor
+docker run -p 5001:5001 \
+--add-host gitlab.bryce.com:192.168.0.103 \
+--env JAVA_OPTS='-server -Xmx512m' \
+--name monitor -d \
+--restart always brycehuang/monitor:1.0-SNAPSHOT \
+--network=host
+
+# 运行zipkin
+docker run -p 5002:5002 \
+--add-host gitlab.bryce.com:192.168.0.103 \
+--env JAVA_OPTS='-server -Xmx512m' \
+--name zipkin -d \
+--restart always brycehuang/zipkin:1.0-SNAPSHOT \
+--network=host
+

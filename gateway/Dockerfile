@@ -1,14 +1,8 @@
 FROM  kdvolder/jdk8
+ARG JAR_FILE
+ADD target/${JAR_FILE} /opt/app.jar
+ENTRYPOINT java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom \
+ -Duser.timezone=Asia/Shanghai \
+ -Dfile.encoding=UTF-8  \
+ -jar /opt/app.jar \
 
-
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-RUN mkdir -p /gateway
-
-WORKDIR /gateway
-
-EXPOSE 9999
-
-ADD ./gateway/target/gateway.jar ./
-
-CMD java -Djava.security.egd=file:/dev/./urandom -jar gateway.jar
