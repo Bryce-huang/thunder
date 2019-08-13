@@ -7,7 +7,7 @@ docker run -it -u root -d -p 8000:8080 -p 50000:50000 --name jenkins \
 --privileged=true jenkins:2.150
 
 # 运行eureka
-docker run -p 8761:8761 \
+docker run  \
 --env JAVA_OPTS='-server -Xmx512m' \
 --env PROFILE='dev' \
 --env EUREKA_PORT='8761' \
@@ -18,7 +18,7 @@ docker run -p 8761:8761 \
 
 
 # 运行config
-docker run -p 8888:8888 \
+docker run  \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name config -d \
 --add-host gitlab.bryce.com:192.168.0.103 \
@@ -28,7 +28,7 @@ $(cat /etc/hosts|awk -F ' ' '{if(NR>2){print "--add-host " $2 ":" $1}}') \
 
 
 # 运行admin
-docker run -p 4000:4000 \
+docker run  \
 --add-host gitlab.bryce.com:192.168.0.103 \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name admin -d \
@@ -37,7 +37,7 @@ docker run -p 4000:4000 \
 
 
 # 运行auth
-docker run -p 3000:3000 \
+docker run  \
 --add-host gitlab.bryce.com:192.168.0.103 \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name auth -d \
@@ -45,7 +45,7 @@ docker run -p 3000:3000 \
 --network=host
 
 # 运行gateway
-docker run -p 9999:9999 \
+docker run  \
 --add-host gitlab.bryce.com:192.168.0.103 \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name gateway -d \
@@ -54,7 +54,7 @@ docker run -p 9999:9999 \
 
 
 # 运行monitor
-docker run -p 5001:5001 \
+docker run  \
 --add-host gitlab.bryce.com:192.168.0.103 \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name monitor -d \
@@ -62,7 +62,7 @@ docker run -p 5001:5001 \
 --network=host
 
 # 运行zipkin
-docker run -p 5002:5002 \
+docker run  \
 --add-host gitlab.bryce.com:192.168.0.103 \
 --env JAVA_OPTS='-server -Xmx512m' \
 --name zipkin -d \
