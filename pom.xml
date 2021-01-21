@@ -58,7 +58,7 @@
         <log4j2-logstash-layout.version>0.19</log4j2-logstash-layout.version>
         <jansi.version>1.18</jansi.version>
         <logstash-logback-encoder.version>6.1</logstash-logback-encoder.version>
-        <jackson.version>2.9.9</jackson.version>
+        <jackson.version>2.12.1</jackson.version>
         <security.oauth.version>2.3.6.RELEASE</security.oauth.version>
         <dockerfile.maven.version>1.4.10</dockerfile.maven.version>
     </properties>
