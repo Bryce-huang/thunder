@@ -41,7 +41,7 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
         <mybatis-plus.version>3.1.2</mybatis-plus.version>
-        <guava.version>28.0-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <spring4all-boot-swagger.version>1.9.0.RELEASE</spring4all-boot-swagger.version>
         <mysql-connector.version>8.0.16</mysql-connector.version>
